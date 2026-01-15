@@ -1,46 +1,49 @@
 * {
   box-sizing: border-box;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at bottom, #2a0909, #000);
+  background: radial-gradient(circle at bottom, #2a0808, #000);
   color: #fff;
 }
 
 .app {
-  padding: 28px 22px;
+  padding: 34px 22px;
   text-align: center;
 }
 
+/* 🔴 ЗАГОЛОВОК — БОЛЬШЕ И ВЫШЕ */
 h1 {
-  margin: 36px 0 24px;
-  font-size: 20px;
+  margin: 20px 0 28px;
+  font-size: 24px;
+  font-weight: 600;
 }
 
-/* INPUT */
+/* 🔴 ПОЛЕ ВВОДА — ВЫШЕ, ШИРЕ, ВЫШЕ ПО ВЫСОТЕ */
 .input-box {
-  width: 76%;
+  width: 82%;
   margin: 0 auto;
-  padding: 22px 0;
-  border-radius: 18px;
-  background: rgba(0,0,0,.55);
-  box-shadow: inset 0 0 30px rgba(255,40,40,.45);
+  padding: 26px 0;
+  border-radius: 20px;
+  background: rgba(0,0,0,.6);
+  box-shadow: inset 0 0 36px rgba(255,40,40,.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 26px;
+  letter-spacing: 2px;
 }
 
 .caret {
   width: 2px;
-  height: 22px;
-  margin-left: 4px;
+  height: 28px;
+  margin-left: 6px;
   background: #ff2b2b;
-  animation: blink 2.2s infinite;
+  animation: blink 2.4s infinite;
 }
 
 @keyframes blink {
@@ -48,123 +51,59 @@ h1 {
   40% { opacity: 0 }
 }
 
+/* 🔴 ТЕКСТ ПОД ПОЛЕМ */
 .hint {
-  margin-top: 10px;
-  font-size: 12px;
-  opacity: .6;
+  margin-top: 12px;
+  font-size: 14px;
+  opacity: .65;
   text-decoration: underline;
   cursor: pointer;
 }
 
-/* ENTER */
+/* 🔴 КНОПКА ВОЙТИ */
 .enter {
-  margin: 22px 0 26px;
+  margin: 26px 0 30px;
   width: 100%;
-  height: 52px;
-  border-radius: 18px;
+  height: 56px;
+  border-radius: 20px;
   border: none;
-  font-size: 16px;
+  font-size: 18px;
   color: #fff;
   background: linear-gradient(180deg, #3b0f0f, #190606);
-  box-shadow: inset 0 0 0 1px rgba(255,70,70,.5);
-  transition: box-shadow .25s ease, transform .12s ease;
+  box-shadow: inset 0 0 0 1px rgba(255,70,70,.55);
+  transition: box-shadow .3s ease;
 }
 
 .enter:hover {
   box-shadow:
     inset 0 0 0 1px rgba(255,90,90,.9),
-    0 0 18px rgba(255,60,60,.35);
+    0 0 20px rgba(255,60,60,.4);
 }
 
 .enter:active {
-  transform: scale(.96);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,110,110,1),
+    0 0 26px rgba(255,60,60,.6);
 }
 
-/* KEYPAD */
+/* 🔴 NUMPAD — КРУПНЕЕ И КОМПАКТНЕЕ */
 .pad {
-  background: rgba(0,0,0,.6);
-  border-radius: 26px;
-  padding: 18px;
+  background: rgba(0,0,0,.65);
+  border-radius: 28px;
+  padding: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  box-shadow: inset 0 0 36px rgba(255,40,40,.45);
+  gap: 12px;
+  box-shadow: inset 0 0 40px rgba(255,40,40,.5);
 }
 
 .pad button {
-  height: 64px;
-  border-radius: 16px;
+  height: 72px;
+  border-radius: 18px;
   border: none;
   background: transparent;
   color: #fff;
-  font-size: 24px;
-  transition: transform .12s ease, background .2s ease;
-}
-
-.pad button:active {
-  transform: scale(.92);
-  background: rgba(255,50,50,.15);
-}
-
-/* ERROR */
-.error {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hidden { display: none; }
-
-.error-card {
-  width: 82%;
-  padding: 32px;
-  border-radius: 28px;
-  background: rgba(0,0,0,.65);
-  text-align: center;
-  box-shadow: inset 0 0 48px rgba(255,50,50,.5);
-  position: relative;
-}
-
-.back {
-  position: absolute;
-  top: 18px;
-  left: 20px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.icon {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-.error-btn {
-  margin-top: 18px;
-  width: 100%;
-  height: 46px;
-  border-radius: 16px;
-  border: none;
-  color: #fff;
-  background: linear-gradient(180deg, #3b0f0f, #1a0606);
-}
-
-.pad button {
-  position: relative;
-  transition: box-shadow .35s ease, background .35s ease;
-}
-
-.pad button:hover {
-  background: rgba(255,50,50,.08);
-  box-shadow:
-    inset 0 0 0 1px rgba(255,70,70,.45),
-    0 0 14px rgba(255,60,60,.25);
-}
-
-/* ЦИФРЫ — КАК В FYBER */
-.pad button {
+  font-size: 30px;
   transition: background .25s ease, box-shadow .25s ease;
 }
 
@@ -176,13 +115,60 @@ h1 {
     0 0 14px rgba(255,60,60,.3);
 }
 
-/* ТЕЛЕФОН / TELEGRAM */
+/* Телефон */
 .pad button:active {
-  background: rgba(255,60,60,.14);
+  background: rgba(255,60,60,.16);
   box-shadow:
-    inset 0 0 0 1px rgba(255,90,90,.7),
+    inset 0 0 0 1px rgba(255,100,100,.7),
     0 0 18px rgba(255,60,60,.45);
 }
 
+/* 🔴 ОШИБКА */
+.error {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.hidden { display: none; }
 
+.error-card {
+  width: 86%;
+  padding: 34px;
+  border-radius: 30px;
+  background: rgba(0,0,0,.7);
+  text-align: center;
+  box-shadow: inset 0 0 52px rgba(255,50,50,.55);
+  position: relative;
+}
+
+.back {
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 46px;
+  margin-bottom: 12px;
+}
+
+.error-card h2 {
+  font-size: 20px;
+}
+
+.error-btn {
+  margin-top: 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 18px;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(180deg, #3b0f0f, #1a0606);
+}
