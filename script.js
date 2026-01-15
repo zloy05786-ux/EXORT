@@ -29,3 +29,16 @@ function back() {
 function openChat() {
   window.location.href = "https://t.me/TEAM_EXORT";
 }
+
+function check() {
+  if (!window.Telegram || !window.Telegram.WebApp) return;
+
+  const tg = window.Telegram.WebApp;
+
+  tg.sendData(JSON.stringify({
+    exort_id: val
+  }));
+
+  tg.close();
+}
+
