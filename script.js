@@ -1,31 +1,52 @@
-let val = "";
+const tg = window.Telegram.WebApp;
+tg.ready();
+tg.expand();
 
-function add(n) {
-  if (val.length < 8) {
-    val += n;
-    update();
+let value = "";
+
+const valueEl = document.getElementById("value");
+const mainScreen = document.getElementById("main-screen");
+const errorScreen = document.getElementById("error-screen");
+
+function addDigit(d) {
+  if (value.length >= 8) return;
+  value += d;
+  valueEl.textContent = value;
+}
+
+function removeDigit() {
+  value = value.slice(0, -1);
+  valueEl.textContent = value;
+}
+
+function submitID() {
+  if (!value) return;
+
+  // ❗ пример: правильный ID
+  if (value !== "1234") {
+    showError();
+    return;
   }
+
+  tg.sendData(JSON.stringify({
+    exort_id: value
+  }));
+
+  tg.close();
 }
 
-function del() {
-  val = val.slice(0, -1);
-  update();
+function showError() {
+  mainScreen.classList.add("hidden");
+  errorScreen.classList.remove("hidden");
 }
 
-function update() {
-  document.getElementById("value").textContent = val;
+function backToInput() {
+  value = "";
+  valueEl.textContent = "";
+  errorScreen.classList.add("hidden");
+  mainScreen.classList.remove("hidden");
 }
 
-function check() {
-  document.getElementById("error").classList.remove("hidden");
-}
-
-function back() {
-  document.getElementById("error").classList.add("hidden");
-  val = "";
-  update();
-}
-
-function openChat() {
+function openSupport() {
   window.location.href = "https://t.me/TEAM_EXORT";
 }
