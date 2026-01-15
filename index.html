@@ -3,47 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>EXORT</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
-  <!-- ОСНОВНОЙ ЭКРАН -->
-  <div id="main-screen" class="screen">
-    <div class="title">Введите EXORT ID</div>
+<div class="app" id="login">
 
-    <div class="input-box">
-      <span id="value"></span>
-      <span class="cursor"></span>
-    </div>
+  <h1>Введите EXORT ID</h1>
 
-    <div class="numpad">
-      <button onclick="addDigit(1)">1</button>
-      <button onclick="addDigit(2)">2</button>
-      <button onclick="addDigit(3)">3</button>
-      <button onclick="addDigit(4)">4</button>
-      <button onclick="addDigit(5)">5</button>
-      <button onclick="addDigit(6)">6</button>
-      <button onclick="addDigit(7)">7</button>
-      <button onclick="addDigit(8)">8</button>
-      <button onclick="addDigit(9)">9</button>
-      <button class="empty"></button>
-      <button onclick="addDigit(0)">0</button>
-      <button onclick="removeDigit()">⌫</button>
-    </div>
-
-    <button id="login-btn" onclick="submitID()">Войти</button>
+  <div class="input-box">
+    <span id="value"></span>
+    <span class="caret"></span>
   </div>
 
-  <!-- ЭКРАН ОШИБКИ -->
-  <div id="error-screen" class="screen hidden">
-    <div class="error-text">Неверный EXORT ID</div>
+  <div class="hint" onclick="openChat()">Нет ID воркера?</div>
 
-    <button class="back-btn" onclick="backToInput()">← Назад</button>
-    <button class="support-btn" onclick="openSupport()">Получить ID</button>
+  <button class="enter" onclick="check()">ВОЙТИ</button>
+
+  <div class="pad">
+    <button onclick="add(1)">1</button>
+    <button onclick="add(2)">2</button>
+    <button onclick="add(3)">3</button>
+
+    <button onclick="add(4)">4</button>
+    <button onclick="add(5)">5</button>
+    <button onclick="add(6)">6</button>
+
+    <button onclick="add(7)">7</button>
+    <button onclick="add(8)">8</button>
+    <button onclick="add(9)">9</button>
+
+    <div></div>
+    <button onclick="add(0)">0</button>
+    <button onclick="del()">⌫</button>
   </div>
 
-  <script src="script.js"></script>
+</div>
+
+<!-- ERROR -->
+<div class="error hidden" id="error">
+  <div class="error-card">
+    <div class="back" onclick="back()">←</div>
+    <div class="icon">!</div>
+    <h2>Неверный ID</h2>
+    <button class="error-btn" onclick="openChat()">Получить ID</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
