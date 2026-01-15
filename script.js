@@ -1,44 +1,58 @@
-let val = "";
+// === Telegram WebApp init ===
+const tg = window.Telegram.WebApp;
+tg.ready();
+tg.expand();
 
-function add(n) {
-  if (val.length < 8) {
-    val += n;
-    update();
-  }
+// === STATE ===
+let value = "";
+
+// === ELEMENTS ===
+const input = document.getElementById("value");
+const errorScreen = document.getElementById("error-screen");
+const mainScreen = document.getElementById("main-screen");
+
+// === FUNCTIONS ===
+
+// Добавление цифры
+function addDigit(digit) {
+  if (value.length >= 8) return;
+
+  value += digit;
+  input.textContent = value;
 }
 
-function del() {
-  val = val.slice(0, -1);
-  update();
+// Удаление цифры
+function removeDigit() {
+  value = value.slice(0, -1);
+  input.textContent = value;
 }
 
-function update() {
-  document.getElementById("value").textContent = val;
-}
-
-function check() {
-  document.getElementById("error").classList.remove("hidden");
-}
-
-function back() {
-  document.getElementById("error").classList.add("hidden");
-  val = "";
-  update();
-}
-
-function openChat() {
-  window.location.href = "https://t.me/TEAM_EXORT";
-}
-
-function check() {
-  if (!window.Telegram || !window.Telegram.WebApp) return;
-
-  const tg = window.Telegram.WebApp;
+// Кнопка ВОЙТИ
+function submitID() {
+  if (!value) return;
 
   tg.sendData(JSON.stringify({
-    exort_id: val
+    exort_id: value
   }));
 
   tg.close();
 }
 
+// Показ ошибки
+function showError() {
+  mainScreen.classList.add("hidden");
+  errorScreen.classList.remove("hidden");
+}
+
+// Назад к вводу
+function backToInput() {
+  value = "";
+  input.textContent = "";
+  errorScreen.classList.add("hidden");
+  mainScreen.classList.remove("hidden");
+}
+
+// Переход в личку
+function openSupport() {
+  window.location.href = "https://t.me/TEAM_EXORT";
+}
