@@ -163,8 +163,26 @@ h1 {
     0 0 14px rgba(255,60,60,.25);
 }
 
-.pad button:active {
-  background: rgba(255,50,50,.15);
+/* ЦИФРЫ — КАК В FYBER */
+.pad button {
+  transition: background .25s ease, box-shadow .25s ease;
 }
+
+/* ПК */
+.pad button:hover {
+  background: rgba(255,60,60,.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,80,80,.5),
+    0 0 14px rgba(255,60,60,.3);
+}
+
+/* ТЕЛЕФОН / TELEGRAM */
+.pad button:active {
+  background: rgba(255,60,60,.14);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,90,90,.7),
+    0 0 18px rgba(255,60,60,.45);
+}
+
 
 
