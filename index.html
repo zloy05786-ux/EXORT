@@ -2,44 +2,41 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>EXORT ID</title>
+  <title>EXORT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- BACK ARROW -->
-<div class="back" onclick="goBack()">←</div>
-
-<div class="app">
+<div class="app" id="login">
 
   <h1>Введите EXORT ID</h1>
 
   <div class="input-box">
-    <span id="val"></span>
+    <span id="value"></span>
     <span class="caret"></span>
   </div>
 
-  <div class="hint">Нет ID воркера?</div>
+  <div class="hint" onclick="openChat()">Нет ID воркера?</div>
 
-  <button class="enter">ВОЙТИ</button>
+  <button class="enter" onclick="check()">ВОЙТИ</button>
 
   <div class="pad">
-    <button onclick="add(1)">1</button>
-    <button onclick="add(2)">2</button>
-    <button onclick="add(3)">3</button>
+    <button onclick="tap(this); add(1)">1</button>
+    <button onclick="tap(this); add(2)">2</button>
+    <button onclick="tap(this); add(3)">3</button>
 
-    <button onclick="add(4)">4</button>
-    <button onclick="add(5)">5</button>
-    <button onclick="add(6)">6</button>
+    <button onclick="tap(this); add(4)">4</button>
+    <button onclick="tap(this); add(5)">5</button>
+    <button onclick="tap(this); add(6)">6</button>
 
-    <button onclick="add(7)">7</button>
-    <button onclick="add(8)">8</button>
-    <button onclick="add(9)">9</button>
+    <button onclick="tap(this); add(7)">7</button>
+    <button onclick="tap(this); add(8)">8</button>
+    <button onclick="tap(this); add(9)">9</button>
 
     <div></div>
-    <button onclick="add(0)">0</button>
-    <button onclick="del()">⌫</button>
+    <button onclick="tap(this); add(0)">0</button>
+    <button onclick="tap(this); del()">⌫</button>
   </div>
 
 </div>
@@ -47,10 +44,10 @@
 <!-- ERROR -->
 <div class="error hidden" id="error">
   <div class="error-card">
-    <div class="error-icon">!</div>
-    <h2>Ошибка</h2>
-    <p>Вы ввели неверный ID</p>
-    <button class="error-btn" onclick="closeError()">Получить ID</button>
+    <div class="back" onclick="back()">←</div>
+    <div class="icon">!</div>
+    <h2>Неверный ID</h2>
+    <button class="error-btn" onclick="openChat()">Получить ID</button>
   </div>
 </div>
 
